@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 11:46:52 by moudrib           #+#    #+#             */
-/*   Updated: 2022/11/29 20:12:30 by moudrib          ###   ########.fr       */
+/*   Created: 2022/11/29 15:47:03 by moudrib           #+#    #+#             */
+/*   Updated: 2022/11/30 14:53:48 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,33 +62,25 @@ char	*read_line(int fd, char *buf)
 
 char	*get_next_line(int fd)
 {
-	static char		*buf;
+	static char		*buf[10240];
 	char			*line;
 	int				i;
 
 	if (fd == -1 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buf = read_line(fd, buf);
-	if (!buf)
+	buf[fd] = read_line(fd, buf[fd]);
+	if (!buf[fd])
 		return (NULL);
 	i = -1;
-	while (buf[++i])
+	while (buf[fd][++i])
 	{
-		if (buf[i] == '\n')
+		if (buf[fd][i] == '\n')
 		{
 			i++;
 			break ;
 		}
 	}
-	line = ft_substr(buf, 0, i);
-	buf = save_rest(buf);
+	line = ft_substr(buf[fd], 0, i);
+	buf[fd] = save_rest(buf[fd]);
 	return (line);
 }
-
-// int main ()
-// {
-//      int fd;
-
-//      fd = open("text.txt", O_RDONLY);
-//      printf("%s", get_next_line(fd));    
-// }
