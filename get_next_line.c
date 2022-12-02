@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 11:46:52 by moudrib           #+#    #+#             */
-/*   Updated: 2022/11/29 20:12:30 by moudrib          ###   ########.fr       */
+/*   Updated: 2022/12/02 20:35:50 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,3 @@ char	*get_next_line(int fd)
 	buf = save_rest(buf);
 	return (line);
 }
-
-// int main ()
-// {
-//      int fd;
-
-//      fd = open("text.txt", O_RDONLY);
-//      printf("%s", get_next_line(fd));    
-// }

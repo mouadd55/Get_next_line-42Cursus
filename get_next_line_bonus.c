@@ -6,11 +6,11 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:47:03 by moudrib           #+#    #+#             */
-/*   Updated: 2022/11/30 14:53:48 by moudrib          ###   ########.fr       */
+/*   Updated: 2022/12/02 20:37:46 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*save_rest(char *buf)
 {
@@ -62,11 +62,11 @@ char	*read_line(int fd, char *buf)
 
 char	*get_next_line(int fd)
 {
-	static char		*buf[10240];
+	static char		*buf[OPEN_MAX];
 	char			*line;
 	int				i;
 
-	if (fd == -1 || BUFFER_SIZE <= 0)
+	if (fd > OPEN_MAX || fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buf[fd] = read_line(fd, buf[fd]);
 	if (!buf[fd])

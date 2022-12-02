@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   • get_next_line_utils_bonus.c                      :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:47:42 by moudrib           #+#    #+#             */
-/*   Updated: 2022/11/30 13:07:34 by moudrib          ###   ########.fr       */
+/*   Updated: 2022/12/02 20:20:28 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *str)
 {
@@ -55,7 +55,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	j = 0;
 	if (!s1)
 		s1 = ft_strdup("");
-	if (!s1 || !s2)
+	if (!s2)
 		return (NULL);
 	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (!str)
