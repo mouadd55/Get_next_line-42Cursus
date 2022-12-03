@@ -6,7 +6,7 @@
 /*   By: moudrib <moudrib@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:47:24 by moudrib           #+#    #+#             */
-/*   Updated: 2022/12/03 15:17:47 by moudrib          ###   ########.fr       */
+/*   Updated: 2022/12/03 18:44:33 by moudrib          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 char	*get_next_line(int fd);
 char	*return_line(char *buf);
 char	*save_rest(char *buf);
-char	*check_newline(int fd, char *buf);
+char	*ft_strdup(const char *s1);
 int		search_newline(char *s);
 char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlen(const char *str);
